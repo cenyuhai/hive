@@ -27,10 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.NavigableMap;
 import java.util.TreeMap;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 import org.apache.commons.logging.Log;
@@ -413,7 +410,9 @@ public class OrcInputFormat  implements InputFormat<NullWritable, OrcStruct>,
 
         if (footerCache == null && cacheStripeDetails) {
           footerCache = CacheBuilder.newBuilder().concurrencyLevel(numThreads)
-              .initialCapacity(cacheStripeDetailsSize).softValues().build();
+              .initialCapacity(cacheStripeDetailsSize)
+              .expireAfterWrite(conf.getInt("hive.orc.cache.timeout.secs", 300), TimeUnit.SECONDS)
+              .softValues().build();
         }
       }
       String value = conf.get(ValidTxnList.VALID_TXNS_KEY,

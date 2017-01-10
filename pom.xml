@@ -17,9 +17,7 @@
   <groupId>org.spark-project.hive</groupId>
   <artifactId>hive</artifactId>
   <version>1.2.1.spark2</version>
-  <packaging>pom</packaging>xiuga
-
-
+  <packaging>pom</packaging>
 
   <name>Hive</name>
   <url>http://hive.apache.org</url>

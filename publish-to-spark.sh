@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PUBLISH_PROFILES="-Phadoop-2 -DskipTests -Psources -Pjavadoc"
+PUBLISH_PROFILES="-Phadoop-2 -DskipTests -Psources"
 
 echo "Replacing groupID with com.didichuxing.hive"
 find . -name pom.xml | \
@@ -10,4 +10,4 @@ find . -name pom.xml | \
   xargs -I {} sed -i -e "s/org.spark-project.hive/com.didichuxing.hive/g" {}
 
 echo "Publishing Spark to OSS Sonatype"
-mvn clean deploy -Dgpg.passphrase=-Dgpg.skip $PUBLISH_PROFILES
+mvn clean deploy $PUBLISH_PROFILES

@@ -14,30 +14,29 @@
 -->
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.apache</groupId>
-    <artifactId>apache</artifactId>
-    <version>14</version>
-  </parent>
   <groupId>org.spark-project.hive</groupId>
   <artifactId>hive</artifactId>
   <version>1.2.1.spark2</version>
-  <packaging>pom</packaging>
+  <packaging>pom</packaging>xiuga
 
-  <!-- See http://central.sonatype.org/pages/apache-maven.html -->
-  <distributionManagement>
-    <repository>
-      <id>ossrh</id>
-      <name>Sonatype Nexus Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-    </repository>
-  </distributionManagement>
+
 
   <name>Hive</name>
   <url>http://hive.apache.org</url>
   <prerequisites>
     <maven>2.2.1</maven>
   </prerequisites>
+
+  <distributionManagement>
+    <repository>
+      <id>xiaojukeji-releases</id>
+      <url>http://maven.intra.xiaojukeji.com:8081/nexus/content/repositories/releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>xiaojukeji-snapshots</id>
+      <url>http://maven.intra.xiaojukeji.com:8081/nexus/content/repositories/snapshots</url>
+    </snapshotRepository>
+  </distributionManagement>
 
   <modules>
     <module>accumulo-handler</module>
